@@ -7,6 +7,10 @@ class AppThemes {
   // Light Theme
   static final lightTheme = FlexThemeData.light(
     scheme: FlexScheme.blue,
+    colors: FlexSchemeColor(
+      primary: Colors.blue[200]!,
+      secondary: Colors.grey[200]!,
+    ),
     surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
     blendLevel: 7,
     subThemesData: const FlexSubThemesData(
@@ -58,6 +62,10 @@ class AppThemes {
   // Dark Theme
   static final darkTheme = FlexThemeData.dark(
     scheme: FlexScheme.blue,
+    colors: FlexSchemeColor(
+      primary: Colors.blue[900]!,
+      secondary: Colors.grey[900]!,
+    ),
     surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
     blendLevel: 13,
     subThemesData: const FlexSubThemesData(
@@ -86,12 +94,25 @@ class AppThemes {
           fontFamily: urbanistFontFamily,
           fontWeight: FontWeight.normal), // Regular
       bodyMedium: const TextStyle(
+          fontFamily: urbanistFontFamily,
+          fontWeight: FontWeight.normal,
+          fontSize: 14), // Light
+      bodySmall: const TextStyle(
           fontFamily: urbanistFontFamily, fontWeight: FontWeight.w300), // Light
       labelSmall: const TextStyle(
           fontFamily: urbanistFontFamily,
           fontWeight: FontWeight.w200), // ExtraLight
+      labelLarge: const TextStyle(
+          fontFamily: urbanistFontFamily,
+          fontWeight: FontWeight.w600,
+          fontSize: 18), // ExtraLight
       headlineSmall: const TextStyle(
           fontFamily: urbanistFontFamily, fontWeight: FontWeight.w800),
+      titleMedium: const TextStyle(
+          fontFamily: urbanistFontFamily, fontWeight: FontWeight.w600),
+      titleSmall: const TextStyle(fontFamily: urbanistFontFamily),
     ),
   );
+
+  static final MaterialColor secondaryColor = Colors.grey;
 }

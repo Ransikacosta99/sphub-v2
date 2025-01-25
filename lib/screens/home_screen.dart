@@ -102,7 +102,8 @@ class HomeScreen extends StatelessWidget {
                                 width: 45,
                                 height: 45,
                                 child: Material(
-                                  color: Colors.grey[200],
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
                                   borderRadius: BorderRadius.circular(10),
                                   child: InkWell(
                                     onTap: () {
@@ -178,7 +179,8 @@ class HomeScreen extends StatelessWidget {
                                 width: 80, // Set the desired width
                                 height: 80, // Set the desired height
                                 decoration: BoxDecoration(
-                                  color: Colors.grey[200],
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
                                   borderRadius: BorderRadius.circular(10),
                                   // boxShadow: [
                                   //   BoxShadow(
@@ -203,7 +205,7 @@ class HomeScreen extends StatelessWidget {
                                       height: 40,
                                       fit: BoxFit.contain,
                                     ),
-                                    const SizedBox(height: 8),
+                                    const SizedBox(height: 10),
                                     Text(
                                       categories[i]['name']!,
                                       style:
