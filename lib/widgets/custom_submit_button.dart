@@ -29,15 +29,15 @@ class CustomSubmitButton extends StatelessWidget {
         elevation: elevation,
         padding: const EdgeInsets.symmetric(vertical: 12),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(10),
         ),
       ),
       child: Text(
         label,
-        style: TextStyle(
-          color: textColor ?? Colors.white, // Default to white
-          fontSize: fontSize,
-        ),
+        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+              color: textColor ?? Colors.white, // Default to white
+              fontSize: fontSize,
+            ),
       ),
     );
   }

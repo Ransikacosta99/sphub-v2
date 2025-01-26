@@ -114,5 +114,5 @@ class AppThemes {
     ),
   );
 
-  static final MaterialColor secondaryColor = Colors.grey;
+  // static final MaterialColor secondaryColor = Colors.grey;
 }
