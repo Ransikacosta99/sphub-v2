@@ -182,18 +182,6 @@ class HomeScreen extends StatelessWidget {
                                   color:
                                       Theme.of(context).colorScheme.secondary,
                                   borderRadius: BorderRadius.circular(10),
-                                  // boxShadow: [
-                                  //   BoxShadow(
-                                  //     color: Colors.grey.withOpacity(
-                                  //         0.3), // Shadow color with opacity
-                                  //     spreadRadius:
-                                  //         2, // How much the shadow should spread
-                                  //     blurRadius:
-                                  //         5, // How blurry the shadow should be
-                                  //     offset: const Offset(
-                                  //         0, 3), // Offset in x and y directions
-                                  //   ),
-                                  // ],
                                 ),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment
@@ -436,7 +424,9 @@ class HomeScreen extends StatelessWidget {
         },
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0, // Set default selected index
+        currentIndex: 0,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         onTap: (index) {
           switch (index) {
             case 0:

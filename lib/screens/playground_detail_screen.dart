@@ -17,39 +17,50 @@ class PlaygroundDetailsScreen extends StatelessWidget {
             expandedHeight: 300.0,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text('Rinjani Mountain'),
-              background: CachedNetworkImage(
-                imageUrl: 'https://example.com/rinjani_mountain.jpg',
-                placeholder: (context, url) =>
-                    Center(child: CircularProgressIndicator()),
-                errorWidget: (context, url, error) => Icon(Icons.error),
-                fit: BoxFit.cover,
+              // title: Text('Rinjani Mountain'),
+              background: Image.asset(
+                'assets/images/g1.jpg',
+                height: MediaQuery.of(context).size.height * 0.45,
+                width: double.infinity,
+                fit: BoxFit.fill,
               ),
             ),
           ),
           SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'About the Playground',
-                    style: Theme.of(context).textTheme.titleLarge,
+            child: Container(
+              decoration: const BoxDecoration(
+                color: Color.fromARGB(255, 201, 17, 17),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0), // Adjust as needed
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'CLC Basketball Court',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      SizedBox(height: 8),
+                      Text(
+                        'The mighty Rinjani mountain of Gunung Rinjani is a popular destination for hikers and trekkers. A climb to the top is one of the most exhilarating experiences you can have in Indonesia. At 3,726 meters, Gunung Rinjani is the second highest mountain in Indonesia.',
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                      SizedBox(height: 16),
+                      Text(
+                        'Available Courts',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      SizedBox(height: 8),
+                      _buildCourtsList(context),
+                    ],
                   ),
-                  SizedBox(height: 8),
-                  Text(
-                    'The mighty Rinjani mountain of Gunung Rinjani is a popular destination for hikers and trekkers. A climb to the top is one of the most exhilarating experiences you can have in Indonesia. At 3,726 meters, Gunung Rinjani is the second highest mountain in Indonesia.',
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                  SizedBox(height: 16),
-                  Text(
-                    'Available Courts',
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  SizedBox(height: 8),
-                  _buildCourtsList(context),
-                ],
+                ),
               ),
             ),
           ),
