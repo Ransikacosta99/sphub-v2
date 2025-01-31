@@ -40,45 +40,11 @@ class HomeScreen extends StatelessWidget {
       'rating': '3.3',
     },
   ];
+  int numberOfNotifications = 2;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   leading: SizedBox(
-      //     width: 56, // Standard AppBar leading width
-      //     height: 56, // Standard AppBar leading height
-      //     child: Padding(
-      //       padding: const EdgeInsets.all(8.0),
-      //       child: Material(
-      //         // Use Material for background and shape
-      //         color: Colors.grey[200],
-      //         borderRadius: BorderRadius.circular(10),
-      //         child: Center(
-      //           // Center the icon within the Material
-      //           child: SvgPicture.asset(
-      //             'assets/icons/menu.svg',
-      //             height: 24, // Adjust SVG size as needed
-      //             width: 24,
-      //           ),
-      //         ),
-      //       ),
-      //     ),
-      //   ),
-      //   actions: [
-      //     Padding(
-      //       padding: const EdgeInsets.all(8),
-      //       child: CircleAvatar(
-      //         backgroundImage: AssetImage('assets/images/avatar.png'),
-      //       ),
-      //     ),
-      //   ],
-      //   titleTextStyle: TextStyle(
-      //     fontFamily: 'Urbanist',
-      //     fontSize: 20,
-      //     fontWeight: FontWeight.bold,
-      //   ),
-      // ),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return SingleChildScrollView(
@@ -95,7 +61,7 @@ class HomeScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(right: 16),
+                            padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
                             child: Align(
                               alignment: Alignment.topLeft,
                               child: SizedBox(
@@ -107,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10),
                                   child: InkWell(
                                     onTap: () {
-                                      print('Icon tapped!');
+                                      print('menu Icon tapped!');
                                     },
                                     child: Center(
                                       child: SvgPicture.asset(
@@ -130,28 +96,79 @@ class HomeScreen extends StatelessWidget {
                                 children: [
                                   Icon(
                                     Icons.location_on,
-                                    size: 18,
+                                    size: 16,
                                     color: Colors.blue[500],
                                   ),
-                                  SizedBox(width: 8),
-                                  Text('Maradana road, Colombo',
+                                  SizedBox(width: 5),
+                                  Text('Maradana rd, Colombo',
                                       style: Theme.of(context)
                                           .textTheme
-                                          .labelLarge),
+                                          .labelLarge!
+                                          .copyWith(fontSize: 15)),
                                 ],
                               ),
                             ],
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(right: 0.0),
-                            child: InkWell(
-                              onTap: () {
-                                context.push('/profile');
-                              },
-                              child: CircleAvatar(
-                                radius: 20,
-                                backgroundImage:
-                                    AssetImage('assets/images/avatar.png'),
+                            padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
+                            child: Align(
+                              alignment: Alignment.topLeft,
+                              child: SizedBox(
+                                width: 45,
+                                height: 45,
+                                child: Material(
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: InkWell(
+                                    onTap: () {
+                                      context.push('/notifications');
+                                    },
+                                    child: Stack(
+                                      children: [
+                                        Center(
+                                          child: SvgPicture.asset(
+                                            'assets/icons/bell.svg',
+                                            height: 24,
+                                            width: 24,
+                                          ),
+                                        ),
+                                        if (numberOfNotifications > 0) ...[
+                                          // Conditionally show the badge
+                                          Positioned(
+                                            top: 0,
+                                            right: 0,
+                                            child: Container(
+                                              padding: EdgeInsets.all(4),
+                                              decoration: BoxDecoration(
+                                                color: Colors
+                                                    .red, // Customize badge color
+                                                shape: BoxShape.circle,
+                                              ),
+                                              constraints: BoxConstraints(
+                                                minWidth:
+                                                    16, // Ensure a minimum width for the number
+                                                minHeight: 16,
+                                              ),
+                                              child: Center(
+                                                child: Text(
+                                                  numberOfNotifications
+                                                      .toString(),
+                                                  style: TextStyle(
+                                                    color: Colors
+                                                        .white, // Customize number color
+                                                    fontSize: 10,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ],
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
@@ -160,11 +177,11 @@ class HomeScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 16),
                     Padding(
-                      padding: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(8),
                       child: Text('Categories',
                           style: Theme.of(context).textTheme.headlineSmall),
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: 8),
                     Padding(
                       padding: const EdgeInsets.only(left: 16),
                       child: SizedBox(
@@ -207,13 +224,13 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: 8),
                     Padding(
-                      padding: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(8),
                       child: Text('For You',
                           style: Theme.of(context).textTheme.headlineSmall),
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: 8),
                     SizedBox(
                       height: 220, // Adjust height as needed
                       child: ListView.separated(
@@ -318,18 +335,17 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+                      padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
                       child: Text('Top this week',
                           style: Theme.of(context).textTheme.headlineSmall),
                     ),
-                    SizedBox(height: 8),
                     Padding(
-                      padding: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(0),
                       child: ListView.separated(
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),
                         itemCount: destinations.length,
-                        separatorBuilder: (_, __) => SizedBox(height: 16),
+                        separatorBuilder: (_, __) => SizedBox(height: 8),
                         itemBuilder: (_, i) => GestureDetector(
                           onTap: () => context.push('/playground/${i + 1}'),
                           child: Card(

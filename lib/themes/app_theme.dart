@@ -41,7 +41,7 @@ class AppThemes {
       bodyMedium: const TextStyle(
           fontFamily: urbanistFontFamily,
           fontWeight: FontWeight.normal,
-          fontSize: 14), // Light
+          fontSize: 12), // Light
       bodySmall: const TextStyle(
           fontFamily: urbanistFontFamily, fontWeight: FontWeight.w300), // Light
       labelSmall: const TextStyle(
@@ -52,7 +52,9 @@ class AppThemes {
           fontWeight: FontWeight.w600,
           fontSize: 18), // ExtraLight
       headlineSmall: const TextStyle(
-          fontFamily: urbanistFontFamily, fontWeight: FontWeight.w800),
+          fontFamily: urbanistFontFamily,
+          fontWeight: FontWeight.w800,
+          fontSize: 22),
       titleMedium: const TextStyle(
           fontFamily: urbanistFontFamily, fontWeight: FontWeight.w600),
       titleSmall: const TextStyle(fontFamily: urbanistFontFamily),
@@ -96,7 +98,7 @@ class AppThemes {
       bodyMedium: const TextStyle(
           fontFamily: urbanistFontFamily,
           fontWeight: FontWeight.normal,
-          fontSize: 14), // Light
+          fontSize: 12), // Light
       bodySmall: const TextStyle(
           fontFamily: urbanistFontFamily, fontWeight: FontWeight.w300), // Light
       labelSmall: const TextStyle(
@@ -107,7 +109,9 @@ class AppThemes {
           fontWeight: FontWeight.w600,
           fontSize: 18), // ExtraLight
       headlineSmall: const TextStyle(
-          fontFamily: urbanistFontFamily, fontWeight: FontWeight.w800),
+          fontFamily: urbanistFontFamily,
+          fontWeight: FontWeight.w800,
+          fontSize: 22),
       titleMedium: const TextStyle(
           fontFamily: urbanistFontFamily, fontWeight: FontWeight.w600),
       titleSmall: const TextStyle(fontFamily: urbanistFontFamily),

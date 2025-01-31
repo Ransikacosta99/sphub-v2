@@ -142,8 +142,8 @@ class _SearchScreenState extends State<SearchScreen> {
         return Column(
           children: [
             Container(
-              width: 120, // Set the desired width
-              height: 120, // Set the desired height
+              width: 90, // Set the desired width
+              height: 90, // Set the desired height
               decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.secondary,
                 borderRadius: BorderRadius.circular(10),
@@ -154,11 +154,11 @@ class _SearchScreenState extends State<SearchScreen> {
                 children: [
                   SvgPicture.asset(
                     categories[index]['icon']!,
-                    width: 80,
-                    height: 80,
+                    width: 50,
+                    height: 50,
                     fit: BoxFit.contain,
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 5),
                   Text(
                     categories[index]['name']!,
                     style: Theme.of(context).textTheme.bodyMedium,
@@ -179,7 +179,7 @@ class _SearchScreenState extends State<SearchScreen> {
         final playground = searchResults[index];
         return InkWell(
           child: Padding(
-            padding: EdgeInsets.fromLTRB(8, 8, 8, 16),
+            padding: EdgeInsets.fromLTRB(16, 20, 16, 0),
             child: Column(
               children: [
                 ClipRRect(
